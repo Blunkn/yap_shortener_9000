@@ -5,7 +5,7 @@ The Singaporean cosplay community post-COVID has seen a lot of drama, from petty
 Most messes are also documented with screenshots, documents, and other files with intricate detail and below-average prose.
 Unfortunately, no one has the time or energy to sift through all that shit, given most drama is started by petty kids with nothing better to do.
 
-I thus introduce the *Yap Shortener 9000*, a program that automates noise by extracting text from input data and allows you to feed it to a generative AI for a summary.
+I thus introduce the *Yap Shortener 9000*, a program that automates noise filtering by extracting text from input data and allows you to feed it to a generative AI for a summary.
 
 ## Features
 ---
