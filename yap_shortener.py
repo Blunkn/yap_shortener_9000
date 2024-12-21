@@ -1,4 +1,4 @@
-import os, sys, pytesseract, docx, PyPDF2
+import os, sys, pytesseract, docx, PyPDF2, datetime
 from PIL import Image
 from pathlib import Path
 
@@ -12,6 +12,10 @@ class YapShortener:
         # exist_ok stops it from freaking out if folders already exist
         self.input.mkdir(exist_ok=True)
         self.output.mkdir(exist_ok=True)
+
+        # this creates a new output file before anything
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.output_file = self.output / f"{timestamp}_results.txt"
 
     # --- EXTRACTORS ---
     def extract_image(self, imgpath):
@@ -47,10 +51,11 @@ class YapShortener:
     # --- PROCESSORS ---
     def save_text(self, text, filename): # text takes in output from extractors; filename is taken from files in input dir
         """Saves extracted text to the output dir"""
-        output_path = self.output / f"{Path(filename).stem}_extracted.txt"
-        with open(output_path, 'w', encoding='utf-8') as f:
+        # writes to the created output file
+        with open(self.output_file, 'a', encoding='utf-8') as f:
+            f.write(f"From {filename}:\n")
             f.write(text)
-        return output_path
+        return self.output_file
     
     def process_files(self):
         """Processes all files in input dir"""
@@ -59,7 +64,7 @@ class YapShortener:
         processed = 0
 
         for file in self.input.iterdir(): # iteratively goes thru input folder to process each file(if supported)
-            if file.suffix.lower() in ext: # 1st check to see if file is supported
+            if file.suffix.lower() in ext and file.name != "pad.txt": # 1st check to see if file is supported; added ignore function lol
                 if file.suffix.lower() in ['.png', '.jpg', '.jpeg']:
                     text = self.extract_image(file)
                     output_path = self.save_text(text, file.name)
@@ -79,7 +84,7 @@ class YapShortener:
                     print(f"Processed {file}; saved to {output_path}")
                     print(f"Files processed: {processed}")
 
-        return True
+        return processed
     
 def menu():
     print("\nThe Yap Shortener 9000")
