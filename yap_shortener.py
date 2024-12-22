@@ -89,7 +89,7 @@ class YapShortener:
 def menu():
     print("\nThe Yap Shortener 9000")
     print("Please choose an option:")
-    print("1 - Process all files in input folder")
+    print("1 - Process files")
     print('2 - Help')
     print('3 - Exit')
     return input('Select an option (1-3): ')
@@ -98,7 +98,8 @@ def help():
     tldr = YapShortener()
 
     print("\nProgram Summary")
-    print("""When drama comes up, communities like to write long-winded,
+    print("""
+          When drama comes up, communities like to write long-winded,
           convoluted texts no one has the time or energy to read up on.
           The Yap Shortener 9000 serves to extract all known forms of written drama text
           into a simple .txt file to be fed to a generative AI for summarisation prompts.
@@ -107,20 +108,31 @@ def help():
           2. It would be funny feeding dirty laundry to an AI.
           3. It may save people time.
           Be warned that the program is not infallible; texts may be extracted wrongly or incompletely.
-          Generative AI may not have the full context, so they may respond with inaccurate summaries.
-          Have fun.""")
+          Generative AI may not have the full context, so they may also respond with inaccurate summaries.
+          Have fun.
+          """)
+    print("\n")
+    print("\nProgram Usage")
+    print("""
+          1. Ensure you have everything placed in the input folder. Sort them in order if you can.
+          2. Press Option 1 to automatically process everything into an output .txt file.
+          3. Upload the file to a genAI. Type your own prompt to ask it for a summary.
+          """)
 
 def main():
     tldr = YapShortener()
 
     while True:
-        choice = menu()
+        choice = menu().strip()
         if choice == '1':
-            res = tldr.process_files()
-            print(f"\nProcessed {res} files")
-        if choice == '2':
+            res = tldr.process_files() # res returns number of files processed
+            if res == 0:
+                print(f"\nThe input directory is empty, file types inside are not supported, or files inside cannot be detected.")
+            else:
+                print(f"\nProcessed {res} files")
+        elif choice == '2':
             help()
-        if choice == '3':
+        elif choice == '3':
             print("\nExiting program...")
             break
         else:

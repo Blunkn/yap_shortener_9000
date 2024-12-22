@@ -18,26 +18,43 @@ Yes it's just a text extractor by another name btw.
 
 ## Dependencies
 ---
-- Python 3.1.3 or above.
-- Google Tesseract-OCR.
-- Both in your system PATH.
+- Python 3.13 or above.
+https://www.python.org/downloads/ Download the latest *stable* version(not pre-release, etc). When installing, check the "add to PATH" option. I'm pretty sure there was one.
+
+- Tesseract-OCR.
+https://github.com/UB-Mannheim/tesseract/wiki Download the latest x64 installer. When installing, check "install for everyone".
+
+Now do the following magic ritual drawn from ancient tech wizardry knowledge to PATH your OCR installation:
+1. Press Win + R, type "sysdm.cpl", press Enter
+2. Go to "Advanced" tab
+3. Click "Environment Variables" near the bottom
+4. Under "System Variables" (bottom section), find "Path"
+5. Click "Edit"
+6. Click "New"
+7. Add the Tesseract installation path (typically C:\Program Files\Tesseract-OCR)
+(ps. to get that filepath you need to check "install for everyone" during installation; if wrong, just reinstall)
+8. Click "OK" on all windows
+
 
 ## How to Use
 ---
-- Clone the repository into a folder.
+- Download the repo as a .zip file. Extract all of it out.
 - When your File Explorer is on the directory the .py program is on, click on the directory bar and type "cmd".
 - Type in the command "py yap_shortener.py" to run it.
-- Place files in input folder, run the program on Command Prompt, and it will extract text in output folder.
+- Ensure files you wanna process are in input folder, run the program on Command Prompt, and it will extract text in output folder.
 - Now copy the output .txt file or just copy the text, dump it into a genAI prompt, and ask it for a summary.
 
 ## Issues
 ---
-- External tool Tesseract-OCR had to be manually downloaded and added to PATH for this to properly work. I'm looking to increasing accessibility such that non-tech-savvy people can run it without minimal dependency installation.
+- External tool Tesseract-OCR had to be manually downloaded and added to PATH for this to properly work. I'm looking to increasing accessibility such that non-tech-savvy people can run it with minimal dependency installation.
 - .docx and .pdf features untested. Currently finding test data.
-- Program keeps outputting "Invalid option." from the menu() code no matter what is pressed.
 
 ## Version Control
 ---
+v1.2 -
+- fixed code outputting "invalid option" no matter what is pressed
+- added additional text to handle if input directory is empty or files inside aren't supported/detected
+- changed readme to have a quick demo on how to install dependencies and PATH them; added easier download & use method too
 
 v1.1 - 
 - fixed image processing feature 
