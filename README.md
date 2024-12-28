@@ -18,7 +18,7 @@ Yes it's just a text extractor by another name btw.
 
 ## Dependencies
 ---
-- Python 3.13 or above.
+- Python 3.6 or above.
 https://www.python.org/downloads/ Download the latest *stable* version(not pre-release, etc). When installing, check the "add to PATH" option. I'm pretty sure there was one.
 
 - Python Dependencies:
