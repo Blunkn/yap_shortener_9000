@@ -21,6 +21,14 @@ Yes it's just a text extractor by another name btw.
 - Python 3.13 or above.
 https://www.python.org/downloads/ Download the latest *stable* version(not pre-release, etc). When installing, check the "add to PATH" option. I'm pretty sure there was one.
 
+- Python Dependencies:
+    - Pillow
+    - Pytesseract
+    - python-docx
+    - PyPDF2
+
+To install dependencies, type "pip install" and then the dependency name on Command Prompt.
+
 - Tesseract-OCR.
 https://github.com/UB-Mannheim/tesseract/wiki Download the latest x64 installer. When installing, check "install for everyone".
 
@@ -48,6 +56,10 @@ Now do the following magic ritual drawn from ancient tech wizardry knowledge to 
 ---
 - External tool Tesseract-OCR had to be manually downloaded and added to PATH for this to properly work. I'm looking to increasing accessibility such that non-tech-savvy people can run it with minimal dependency installation.
 - .docx and .pdf features untested. Currently finding test data.
+
+## Roadmap
+---
+- Extraction of text from embedded images in .docx and .pdf files.
 
 ## Version Control
 ---
