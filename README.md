@@ -27,11 +27,11 @@ https://www.python.org/downloads/ Download the latest *stable* version(not pre-r
 
 When installing, check the "add to PATH" option. I'm pretty sure there was one.
 
-1.1 Python Dependencies:
-    - Pillow 10.0.0
-    - Pytesseract 0.3.10
-    - python-docx 0.8.11
-    - PyPDF2 3.0.1
+1.1. Python Dependencies:
+    1. Pillow 10.0.0
+    2. Pytesseract 0.3.10
+    3. python-docx 0.8.11
+    4. PyPDF2 3.0.1
 
 To install dependencies, when Command Prompt is open on the root directory, run this command:
 ```
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 ```
 This automatically fetches and installs the lowest required versions of each package.
 
-2 Tesseract-OCR.
+2. Tesseract-OCR.
 https://github.com/UB-Mannheim/tesseract/wiki Download the latest x64 installer. When installing, check "Install for everyone".
 
 Now do the following magic ritual drawn from ancient tech wizardry knowledge to PATH your OCR installation:
