@@ -28,10 +28,10 @@ https://www.python.org/downloads/ Download the latest *stable* version(not pre-r
 When installing, check the "add to PATH" option. I'm pretty sure there was one.
 
 1.1. Python Dependencies:
-    1. Pillow 10.0.0
-    2. Pytesseract 0.3.10
-    3. python-docx 0.8.11
-    4. PyPDF2 3.0.1
+- Pillow 10.0.0
+- Pytesseract 0.3.10
+- python-docx 0.8.11
+- PyPDF2 3.0.1
 
 To install dependencies, when Command Prompt is open on the root directory, run this command:
 ```
